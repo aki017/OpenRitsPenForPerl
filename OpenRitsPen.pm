@@ -75,7 +75,7 @@ sub ChangeColor{
     if ( @_ ) {
         my ( $sock, $color ) = @_;
         # Cの実装ではundefではなく$color
-        $self->_send($sock, revise($color, 8), undef, USE_PEN);
+        $self->_send($sock, revise($color, 8), undef, CHANGE_COLOR);
     }
 }
 
@@ -98,7 +98,7 @@ sub ChangeWidth{
     my $self = shift;
     if ( @_ ) {
         my ( $sock, $size ) = @_;
-        $size = revise($size, 8);
+        $size = revise($size, 500);
         $self->_send($sock, $size, undef, CHANGE_WIDTH);
     }
 }
